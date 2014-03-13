@@ -1,7 +1,16 @@
+% Test the scalability of NPFS on a synthetic data set with an increasing 
+% dimensionality of the feature set. The number of relevant features 
+% remains fixed for the experiment. Thus the solution of the subset selection
+% problem becomes increasingly more sparse when you compare the number of
+% relevant features to the total number of features. 
+%
+% By: Gregory Ditzler (3/13/2014)
 clc;
 clear;
 close all;
 
+% i have the feast library in a private path. you can download the toolbox
+% from adam pocock's github page or from mloss
 addpath('utils/');
 addpath(genpath('~/Git/thesis-code/feat_sel/FEAST/'));
 
