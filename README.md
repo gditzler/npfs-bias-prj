@@ -1,4 +1,3 @@
-cidue2014
-=========
+# To Be Determined
 
-Matlab scripts for the CIDUE manuscript
+TBD
