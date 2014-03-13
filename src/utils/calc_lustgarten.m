@@ -5,6 +5,6 @@ function l = calc_lustgarten(a,b,k)
 %
 % By: Gregory Ditzler 
 al = numel(a);
-bl = numel(b)
-r = numel(intersection(a,b));
+bl = numel(b);
+r = numel(intersect(a,b));
 l = (r-al*bl/k)/(min(al,bl)-max(0,al+bl-k));
