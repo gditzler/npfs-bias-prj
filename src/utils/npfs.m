@@ -26,7 +26,7 @@ parfor b = 1:n_bootstraps
   
   %i = randperm(size(Xp, 2));
   %Xp = Xp(:, i);
-  VV = get_features(Xp, Yp, k, method)';
+  VV = get_features(Xp, Yp, k, method);
   V(:, b) = VV;
 end
 p = feature_significance(V, alpha, delta); 
