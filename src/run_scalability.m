@@ -29,6 +29,8 @@ matlabpool open local 12
 recalls = zeros(numel(n_features),numel(n_boots),numel(n_select));
 jaccards = zeros(numel(n_features),numel(n_boots),numel(n_select));
 lustgarten = zeros(numel(n_features),numel(n_boots),numel(n_select));
+selection_size = zeros(numel(n_features),numel(n_boots),numel(n_select));
+
 
 for a = 1:avg
   for nf = 1:numel(n_features)
@@ -38,6 +40,7 @@ for a = 1:avg
           ', NS:',num2str(n_select(ns))]);
         [data,labels] = uni_data(n_samples, n_features(nf), n_relevant, 'hard');
         idx = npfs(data, labels, method, n_select(ns), n_boots(nb), alpha, 0);
+        selection_size(nf,nb,ns) = numel(idx);
         recalls(nf,nb,ns) = recalls(nf,nb,ns) + calc_recall(1:n_relevant, idx);
         jaccards(nf,nb,ns) = jaccards(nf,nb,ns) + calc_jaccard(1:n_relevant, idx);
         lustgarten(nf,nb,ns) = lustgarten(nf,nb,ns) + calc_lustgarten(1:n_relevant, ...
@@ -51,4 +54,4 @@ jaccards = jaccards/avg;
 lustgarten = lustgarten/avg;
 
 matlabpool close force;
-save('../mat/experiment_scalability.mat');
+save(['../mat/experiment_scalability_',method,'.mat']);
