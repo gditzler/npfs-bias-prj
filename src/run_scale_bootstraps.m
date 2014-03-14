@@ -25,6 +25,8 @@ jaccards = zeros(numel(n_features),numel(n_boots),numel(n_select));
 lustgarten = zeros(numel(n_features),numel(n_boots),numel(n_select));
 selection_size = zeros(numel(n_features),numel(n_boots),numel(n_select));
 
+matlabpool close force
+matlabpool open local 12
 
 for a = 1:avg
   for nf = 1:numel(n_features)
