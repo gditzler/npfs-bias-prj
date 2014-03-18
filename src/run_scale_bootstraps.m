@@ -11,13 +11,13 @@ addpath('utils/');
 addpath(genpath('~/Git/thesis-code/feat_sel/FEAST/'));
 
 n_relevant = 10;
-n_features = 100:100:4000;
+n_features = 100:250:3000;
 n_boots = 20:20:1000;
 n_select = [5,10,25,50];
 n_samples = 5000;
 method = 'mim';
 alpha = 0.01;
-avg = 20;
+avg = 15;
 
 
 recalls = zeros(numel(n_features),numel(n_boots),numel(n_select));
@@ -32,7 +32,7 @@ for a = 1:avg
   for nf = 1:numel(n_features)
     for nb = 1:numel(n_boots)
       for ns = 1:numel(n_select)
-        disp(['NF:',num2str(n_features(nf)),', NB:',num2str(n_boots(nb)),...
+        disp(['A:',num2str(a),'NF:',num2str(n_features(nf)),', NB:',num2str(n_boots(nb)),...
           ', NS:',num2str(n_select(ns))]);
         [data,labels] = uni_data(n_samples, n_features(nf), n_relevant, 'hard');
         idx = npfs(data, labels, method, n_select(ns), n_boots(nb), alpha, 0);
