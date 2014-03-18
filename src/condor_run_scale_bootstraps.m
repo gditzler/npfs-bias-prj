@@ -3,7 +3,7 @@ function condor_run_scale_bootstraps(rs,n_features,n_boots,n_select)
 % this script runs many more values for the bootstraps and the feature
 % dimensionality. 
 rng(rs)
-addpath('utils/');
+addpath('~/Git/npfs-bias-prj/src/utils/');
 addpath(genpath('~/Git/thesis-code/feat_sel/FEAST/'));
 
 n_relevant = 10;
