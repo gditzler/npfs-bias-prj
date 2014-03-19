@@ -29,5 +29,5 @@ recalls = recalls/avg;
 jaccards = jaccards/avg;
 lustgarten = lustgarten/avg;
 
-save(['/home/gcd34/Git/npfs-bias-prj/mat/experiment_scale_bootstraps_',method,'_nf',...
+save(['/home/gcd34/Git/npfs-bias-prj/mat/single_',method,'/experiment_scale_bootstraps_',method,'_nf',...
   num2str(n_features),'_nb',num2str(n_boots),'_ns',num2str(n_select),'.mat']);
