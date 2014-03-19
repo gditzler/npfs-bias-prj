@@ -3,12 +3,12 @@ function condor_run_scale_bootstraps(rs,n_features,n_boots,n_select)
 % this script runs many more values for the bootstraps and the feature
 % dimensionality. 
 rng(rs)
-addpath('~/Git/npfs-bias-prj/src/utils/');
-addpath(genpath('~/Git/thesis-code/feat_sel/FEAST/'));
+addpath('/home/gcd34/Git/npfs-bias-prj/src/utils/');
+addpath(genpath('/home/gcd34/Git/thesis-code/feat_sel/FEAST/'));
 
 n_relevant = 10;
 n_samples = 5000;
-method = 'mim';
+method = 'jmi';
 alpha = 0.01;
 avg = 15;
 
@@ -29,5 +29,5 @@ recalls = recalls/avg;
 jaccards = jaccards/avg;
 lustgarten = lustgarten/avg;
 
-save(['~/Git/npfs-bias-prj/mat/experiment_scale_bootstraps_',method,'_nf',...
+save(['/home/gcd34/Git/npfs-bias-prj/mat/experiment_scale_bootstraps_',method,'_nf',...
   num2str(n_features),'_nb',num2str(n_boots),'_ns',num2str(n_select),'.mat']);
