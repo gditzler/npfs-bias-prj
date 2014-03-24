@@ -8,7 +8,7 @@ addpath(genpath('/home/gcd34/Git/thesis-code/feat_sel/FEAST/'));
 
 n_relevant = 10;
 n_samples = 5000;
-method = 'mim';
+method = 'jmi';
 alpha = 0.01;
 avg = 15;
 
