@@ -1,4 +1,7 @@
 *.m~
+
+npfs-sub*.sh
+
 mat/single_jmi/
 mat/single_mim/
 mat/experiment_scale*
