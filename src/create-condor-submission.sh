@@ -19,3 +19,19 @@ for nf in ` seq 100 250 3000`; do
 done
 
 echo "There were $njobs jobs prepared"
+
+
+njobs=1
+for nf in ` seq 100 250 3000`; do 
+  for ns in 5 10 25 50; do
+    for nb in `seq 25 25 1000`; do
+      fn=npfs-sub-$njobs.sh
+      echo "#!/usr/bin/env bash" > $fn
+      echo "export MATLABPATH=/home/gcd34/Git/npfs-bias-prj/src/" >> $fn
+      echo "/mnt/HA/opt/MATLAB/R2013a/bin/matlab -nodisplay -singleCompThread -nojvm -r \"condor_run_scale_bootstraps($seed,$nf,$nb,$ns)\" " >> $fn 
+      njobs=$(($njobs+1))
+    done
+  done
+done
+
+
