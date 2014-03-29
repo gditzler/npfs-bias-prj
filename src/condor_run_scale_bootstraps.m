@@ -24,7 +24,7 @@ end
 
 for a = 1:avg
   [data,labels] = uni_data(n_samples, n_features, n_relevant, 'hard');
-  idx = npfs(data, labels, method, n_select, n_boots, alpha, bias);
+  idx = npfs(data, labels, method, n_select, n_boots, alpha, bias_term);
   selection_size = selection_size+numel(idx);
   recalls = recalls + calc_recall(1:n_relevant, idx);
   jaccards = jaccards + calc_jaccard(1:n_relevant, idx);
